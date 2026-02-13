@@ -1,10 +1,6 @@
 import numpy as np
 
 def inject_mnar(X, missing_rate, random_state=42):
-    """
-    Inject MNAR missingness.
-    Missingness depends on the value itself.
-    """
 
     rng = np.random.default_rng(random_state)
 
@@ -15,7 +11,7 @@ def inject_mnar(X, missing_rate, random_state=42):
         np.nanmax(X) - np.nanmin(X) + 1e-8
     )
 
-    # Higher values → more missing
+    # Higher values = more missing
     prob_matrix = missing_rate * X_norm
 
     mask = rng.random(X_miss.shape) < prob_matrix
