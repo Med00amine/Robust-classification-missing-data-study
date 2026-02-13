@@ -100,24 +100,32 @@ Each row represents one experiment configuration, letting you dive deep into spe
 Four key visual summaries are generated showing how different imputation strategies affect model robustness:
 
 #### **1. Accuracy.png**
+![Accuracy](Accuracy.png)
+
 Shows the overall correctness across all predictions. 
 - **What to look for:** Models that maintain high accuracy even at high missing rates are more robust
 - **Interpretation:** As missing data rate increases (left to right), accuracy typically drops—curves that stay flat are winners
 - **Use case:** Pick this if overall correctness is your priority
 
 #### **2. Precision.png**
+![Precision](Precision.png)
+
 Measures false positive rate—when the model predicts positive, how often is it right?
 - **What to look for:** Imputation methods that prevent false alarms despite data corruption
 - **Interpretation:** Critical for applications where wrong "yes" predictions are costly (medical diagnosis, fraud detection, etc.)
 - **Use case:** Choose high-precision methods when false positives are expensive
 
 #### **3. Recall.png**
+![Recall](Recall.png)
+
 Measures false negative rate—of all actual positives, how many did the model catch?
 - **What to look for:** Which imputation keeps the model from missing important cases
 - **Interpretation:** As missing data increases, recall often suffers most—good methods minimize this drop
 - **Use case:** Choose high-recall methods when missing a positive case is critical (disease screening, anomaly detection)
 
 #### **4. F1.png**
+![F1 Score](F1.png)
+
 The balanced metric combining precision and recall into one score.
 - **What to look for:** Smooth curves with minimal degradation across missing rates
 - **Interpretation:** F1 gives a single number per configuration—useful for overall comparison without choosing precision vs. recall trade-offs
