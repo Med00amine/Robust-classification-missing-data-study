@@ -1,6 +1,6 @@
-# Part 1 – Operational Robustness Study under Missing Data
+# Operational Robustness Study under Missing Data
 
-## 🎯 Objective
+##  Objective
 
 This project evaluates the operational robustness of multiple classification models under different missing data mechanisms.
 
@@ -13,14 +13,14 @@ Run the Experiment
 ```bash
 python -m src.experiments.run_experiments
 ```
-## 🧪 Experimental Design
+## Experimental Design
 
-### 1️⃣ Data Split
+### 1️ Data Split
 - Train/Test split performed once.
 - Training data remains clean.
 - Test data is corrupted during evaluation.
 
-### 2️⃣ Missing Mechanisms
+### 2️ Missing Mechanisms
 - MCAR (Missing Completely At Random)
 - MAR (Missing At Random)
 - MNAR (Missing Not At Random)
@@ -32,14 +32,14 @@ Missing rates tested:
 - 50%
 - 70%
 
-### 3️⃣ Imputation Methods
+### 3️ Imputation Methods
 - Zero-Fill (baseline degradation)
 - Mean Imputation
 - KNN Imputation
 - MICE (Iterative Imputer)
 - Autoencoder-based Imputation
 
-### 4️⃣ Models Evaluated
+### 4️ Models Evaluated
 - Random Forest
 - KNN
 - MLP
@@ -48,7 +48,7 @@ Missing rates tested:
 
 ---
 
-## 🔁 Operational Robustness Protocol
+##  Operational Robustness Protocol(loop)
 
 1. Train classifier on clean training data.
 2. Train Autoencoder on clean training data.
