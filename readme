@@ -1,0 +1,85 @@
+# Part 1 – Operational Robustness Study under Missing Data
+
+## 🎯 Objective
+
+This project evaluates the operational robustness of multiple classification models under different missing data mechanisms.
+
+The classifier is trained once on clean data and then evaluated on corrupted test data after applying different imputation strategies.
+
+The goal is to measure how well the same trained model survives input degradation.
+
+---
+Run the Experiment
+```bash
+python -m src.experiments.run_experiments
+```
+## 🧪 Experimental Design
+
+### 1️⃣ Data Split
+- Train/Test split performed once.
+- Training data remains clean.
+- Test data is corrupted during evaluation.
+
+### 2️⃣ Missing Mechanisms
+- MCAR (Missing Completely At Random)
+- MAR (Missing At Random)
+- MNAR (Missing Not At Random)
+
+Missing rates tested:
+- 10%
+- 20%
+- 30%
+- 50%
+- 70%
+
+### 3️⃣ Imputation Methods
+- Zero-Fill (baseline degradation)
+- Mean Imputation
+- KNN Imputation
+- MICE (Iterative Imputer)
+- Autoencoder-based Imputation
+
+### 4️⃣ Models Evaluated
+- Random Forest
+- KNN
+- MLP
+- 1D CNN
+- Transformer Encoder
+
+---
+
+## 🔁 Operational Robustness Protocol
+
+1. Train classifier on clean training data.
+2. Train Autoencoder on clean training data.
+3. For each missing mechanism and rate:
+   - Corrupt test data only.
+   - Apply imputation.
+   - Evaluate using the same trained classifier.
+4. Log metrics and generate robustness curves.
+
+---
+
+## 📊 Metrics
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+
+---
+
+## 📈 Output
+
+### CSV
+`results/csv/baseline_results.csv`
+
+Contains:
+
+| model | mechanism | rate | imputation | accuracy | precision | recall | f1 |
+
+---
+
+### Figures
+
+Robustness curves:
